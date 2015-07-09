@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <title>ThingS-Top-</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script src="js/function.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/input.js"></script>
+</head>
+<body>
+    <div class="header">
+        <div><a href="index.php"><img src="images/logo.png" alt="Logo"></a></div>
+        <div class="taskInput"><img src="images/taskInput.png" alt="taskInput"></div>
+        <div><a href="display.php"><img src="images/groupDisplay.png" alt="GroupDisplay"></a></div>
+        <div class="config"><img src="images/config.png" alt="Config"></div>
+    </div>
+    <div class="main">
+        <div class="displayMenu">
+            <select class="dateSelect">
+                {section name=a loop=$selectDate}
+                <option value="{$selectDate[a]['date']}" {$selectDate[a]['selected']}>{$selectDate[a]['item']}</option>
+                {/section}
+            </select>
+            <div class="disDate">
+                {$disDate}
+            </div>
+            <select class="disRange">
+                <option value="1" {$disRange[1]}>全て</option>
+                <option value="2" {$disRange[2]}>未完了のみ</option>
+                <option value="3" {$disRange[3]}>完了のみ</option>
+                <option value="4" {$disRange[4]}>AGendaのみ</option>
+            </select>
+            <select class="disSequence">
+                <option value="1" {$disSequence[1]}>時系列</option>
+                <option value="2" {$disSequence[2]}>クラス</option>
+                <option value="3" {$disSequence[3]}>優先順位</option>
+            </select>
+        </div>
+        <div class="taskArea">
+            <div class="taskRow" data-id="" data-name="" data-date="" data-class="" data-lank="" data-detail="" data-flg="">
+                <div class="taskCheck"><img src="images/checkIcon.png" alt="taskCheck"></div>
+                <div class="taskName"></div>
+                <div class="taskTime"></div>
+                <div class="taskClass"></div>
+                <div class="taskLank"></div>
+                <div class="taskEdit"><img src="images/taskEdit.png" alt="taskEdit"></div>
+            </div>
+        </div>
+        <div class="blackSheet"></div>
+        <div class="taskForm">
+            <div class="windowCancel">×</div>
+            <div class="formTitle">AGendaList</div>
+            <div class="agendaShedule">
+                <div class="agendaScheduleRow">
+                    <div class="agendaScheduleName"></div>
+                    <div class="agendaScheduleTime"></div>
+                    <div class="agendaScheduleType"></div>
+                </div>
+            </div>
+            <input type="text" class="taskFormTitle" value="">
+            <input type="text" class="taskFormDate" value="">
+            <select class="taskFormClass">
+                {section name=a loop=$class}
+                <option value="{$class[a]['id']}">{$class[a]['name']}</option>
+                {/section}
+            </select>
+            <select class="taskFormLank">
+                <option value="0">--</option>
+                {section name=a loop=$lank}
+                <option value="{$lank[a]['id']}">{$lank[a]['name']}</option>
+                {/section}
+            </select>
+            <textArea class="taskFormDetail"></textArea>
+            <div class="taskFormEnter">完了</div>
+        </div>
+        <div class="configSelect">
+            <div class="windowCancel">×</div>
+            <div class="classConfig">クラス設定</div>
+            <div class="gorupConfig">グループ設定</div>
+        </div>
+        <div class="classForm">
+            <div class="windowCancel">×</div>
+            <div class="formTitle classListDisplay">クラス一覧</div>
+            <div class="classListArea">
+                {section name=a loop=$class}
+                <div class="classListRow" data-id="{$class[a]['id']}" data-color="{$class[a]['color']}" data-name="{$class[a]['name']}">
+                    <div class="classListName">{$class[a]['name']}</div>
+                    <div class="classListEdit">編集</div>
+                    <div class="classListDel">削除</div>
+                </div>
+                {/section}
+            </div>
+            <div class="formTitle"></div>
+            <div class="classFormArea">
+                <input type="text" class="classFormName">
+                <div class="colorFormArea">
+                    {section name=a loop=$color}
+                    <div class="classFormColor" data-id="{$color[a]['id']}" style="background:{$color[a]['code']}" title="{$color[a]['name']}"></div>
+                    {/section}
+                </div>
+                <div class="classFormEnter">追加</div>
+            </div>
+        </div>
+        <div class="groupForm">
+            <div class="windowCancel">×</div>
+            <div class="formTitle groupListDisplay">グループ一覧</div>
+            <div class="groupListArea">
+                {section name=a loop=$group}
+                <div class="groupListRow" data-id="{$group[a]['id']}" data-staff="{$group[a]['staff']}">
+                    <div class="groupListName">{$group[a]['name']}</div>
+                    <div class="groupListEdit">編集</div>
+                    <div class="groupListDel">削除</div>
+                </div>
+                {/section}
+            </div>
+            <div class="formTitle"></div>
+            <div class="groupFormArea">
+                <input type="text" class="groupFormName">
+                <div class="stffFormArea">
+                    {section name=a loop=$staff}
+                    <div class="groupFormStaff" data-id="{$staff[a]['id']}">{$staff[a]['name']}</div>
+                    {/section}
+                </div>
+                <div class="groupFormEnter">追加</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

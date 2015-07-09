@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <title>Thing-Login-</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script src="js/function.js"></script>
+    <script src="js/login.js"></script>
+</head>
+<body>
+<select class="loginStaff">
+    <option value="">選択してください</option>
+    {section name=a loop=$staff}
+    <option value="{$staff[a]['id']}">{$staff[a]['name']}</option>
+    {/section}
+</select>
+<input type="password" class="loginPassword">
+<div class="loginEnter">完了</div>
+</body>
+</html>

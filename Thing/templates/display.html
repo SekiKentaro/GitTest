@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <title>ThingS-Display-</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script src="js/function.js"></script>
+    <script src="js/common.js"></script>
+</head>
+<body>
+    <div class="header">
+        <div><a href="index.php"><img src="images/logo.png" alt="Logo"></a></div>
+        <div class="taskInput"><img src="images/taskInput.png" alt="taskInput"></div>
+        <div><a href="display.php"><img src="images/groupDisplay.png" alt="GroupDisplay"></a></div>
+        <div class="config"><img src="images/config.png" alt="Config"></div>
+    </div>
+    <div class="main">
+        <div class="displayMenu">
+            <select class="dateSelect">
+                {section name=a loop=$selectDate}
+                <option value="{$selectDate[a]['date']}" {$selectDate[a]['selected']}>{$selectDate[a]['item']}</option>
+                {/section}
+            </select>
+            <div class="disDate">
+                {$disDate}
+            </div>
+            <select class="disGroup">
+                <option value="{$group[a]['id]}">{$group[a]['name']}</option>
+                <option value="{$group[a]['id]}">{$group[a]['name']}</option>
+                <option value="{$group[a]['id]}">{$group[a]['name']}</option>
+                <option value="{$group[a]['id]}">{$group[a]['name']}</option>
+                <option value="{$group[a]['id]}">{$group[a]['name']}</option>
+            </select>
+            <select class="disRange">
+                <option value="1" {$disRange[1]}>全て</option>
+                <option value="2" {$disRange[2]}>未完了のみ</option>
+                <option value="3" {$disRange[3]}>完了のみ</option>
+                <option value="4" {$disRange[4]}>AGendaのみ</option>
+            </select>
+        </div>
+        <div class="taskArea">
+            <div class="staffRow">
+                <div class="staffName">スタッフA</div>
+                <div class="staffTaskArea">
+                    <div class="taskCheck"><img src="images/checkIcon.png" alt="taskCheck"></div>
+                    <div class="taskName"></div>
+                    <div class="taskTime"></div>
+                    <div class="taskClass"></div>
+                    <div class="taskLank"></div>
+                </div>
+            </div>
+        </div>
+        <div class="blackSheet"></div>
+        <div class="taskForm">
+            <div class="formTitle">AGendaList</div>
+            <div class="agendaShedule">
+                <div class="agendaScheduleRow">
+                    <div class="agendaScheduleName"></div>
+                    <div class="agendaScheduleTime"></div>
+                    <div class="agendaScheduleType"></div>
+                </div>
+            </div>
+            <input type="text" class="taskFormTitle" value="">
+            <input type="text" class="taskFormDate" value="">
+            <select class="taskFormClass">
+                <option value=""></option>
+            </select>
+            <select class="taskFormLank">
+                <option value=""></option>
+            </select>
+            <textArea class="taskFormDetail"></textArea>
+            <div class="taskFormEnter">完了</div>
+        </div>
+        <div class="configSelect">
+            <div class="classConfig">クラス設定</div>
+            <div class="gorupConfig">グループ設定</div>
+        </div>
+        <div class="classForm">
+            <div class="formTitle classListDisplay">クラス一覧</div>
+            <div class="classListArea">
+                <div class="classListRow">
+                    <div class="classListName"></div>
+                    <div class="classListEdit">編集</div>
+                    <div class="classListDel">削除</div>
+                </div>
+            </div>
+            <div class="formTitle"></div>
+            <div class="classFormArea">
+                <input type="text" class="classFormName">
+                <div class="colorFormArea">
+                    <div class="classFormColor" data-id="" style="background:#000"></div>
+                    <div class="classFormColor" data-id="" style="background:#000"></div>
+                    <div class="classFormColor" data-id="" style="background:#000"></div>
+                    <div class="classFormColor" data-id="" style="background:#000"></div>
+                    <div class="classFormColor" data-id="" style="background:#000"></div>
+                </div>
+                <div class="classFormEnter">追加</div>
+            </div>
+        </div>
+        <div group="groupForm">
+            <div group="formTitle groupListDisplay">グループ一覧</div>
+            <div group="groupListArea">
+                <div group="groupListRow">
+                    <div group="groupListName"></div>
+                    <div group="groupListEdit">編集</div>
+                    <div group="groupListDel">削除</div>
+                </div>
+            </div>
+            <div group="formTitle"></div>
+            <div group="groupFormArea">
+                <input type="text" group="groupFormName">
+                <div group="stffFormArea">
+                    <div class="groupFormStaff" data-id="">スタッフ1</div>
+                    <div class="groupFormStaff" data-id="">スタッフ2</div>
+                    <div class="groupFormStaff" data-id="">スタッフ3</div>
+                    <div class="groupFormStaff" data-id="">スタッフ4</div>
+                    <div class="groupFormStaff" data-id="">スタッフ5</div>
+                </div>
+                <div group="groupFormEnter">追加</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
